@@ -1,20 +1,121 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <ion-icon name="leaf-outline" class="logo-icon"></ion-icon>
+      EcoFootprint
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="home-content">
+
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">EcoFootprint</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- HERO -->
+  <section class="hero-section">
+    <figure class="hero-orb orb-1"></figure>
+    <figure class="hero-orb orb-2"></figure>
+    <header class="hero-header">
+      <span class="eyebrow-tag">Tu impacto, tu responsabilidad</span>
+      <h1 class="hero-title">Mide el<br><em>planeta</em></h1>
+      <p class="hero-subtitle">
+        Herramientas ecológicas para cuantificar tu huella
+        ambiental y monitorear la calidad del aire en tiempo real.
+      </p>
+    </header>
+  </section>
+
+  <!-- STATS DEL USUARIO -->
+  <section class="stats-section">
+    <header class="stats-header">
+      <ion-icon name="analytics-outline"></ion-icon>
+      <span>Tu actividad hoy</span>
+    </header>
+
+    <article class="stats-row">
+
+      <!-- Impacto total -->
+      <article class="stat-card" [class.stat-card-good]="impactoPositivo" [class.stat-card-bad]="!impactoPositivo">
+        <figure class="stat-card-icon" [class.stat-icon-good]="impactoPositivo" [class.stat-icon-bad]="!impactoPositivo">
+          <ion-icon [name]="impactoPositivo ? 'trending-down-outline' : 'trending-up-outline'"></ion-icon>
+        </figure>
+        <span class="stat-card-label">Impacto total</span>
+        <span class="stat-card-value" *ngIf="tieneActividad">{{ totalImpacto }} kg</span>
+        <span class="stat-card-value stat-card-empty" *ngIf="!tieneActividad">—</span>
+        <span class="stat-card-unit">CO₂</span>
+      </article>
+
+      <!-- Estado -->
+      <article class="stat-card stat-card-estado">
+        <figure class="stat-card-icon stat-icon-estado">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+        </figure>
+        <span class="stat-card-label">Estado</span>
+        <span class="stat-card-value" *ngIf="tieneActividad">{{ estadoHuella }}</span>
+        <span class="stat-card-value stat-card-empty" *ngIf="!tieneActividad">Sin datos</span>
+        <span class="stat-card-unit">hoy</span>
+      </article>
+
+    </article>
+
+    <!-- Mensaje sin actividad -->
+    <p class="stats-empty-hint" *ngIf="!tieneActividad">
+      <ion-icon name="leaf-outline"></ion-icon>
+      Registra tu primera actividad en la calculadora
+    </p>
+
+  </section>
+
+  <section class="cards-section">
+
+  <article class="feature-card card-huella">
+    <span class="card-stripe"></span>
+
+    <span class="fcard-top">
+      <span class="fcard-icon-wrap">
+        <ion-icon name="leaf"></ion-icon>
+      </span>
+      <span class="fcard-badge">CO₂</span>
+    </span>
+
+    <span class="fcard-title">Huella de Carbono</span>
+    <span class="fcard-desc">
+      Calcula el impacto de tus actividades diarias
+      y descubre cómo reducir tus emisiones.
+    </span>
+
+    <ion-button expand="block" class="fcard-btn" (click)="funcionalidadHuella()">
+      <ion-icon name="arrow-forward" slot="end"></ion-icon>
+      Calcular Huella
+    </ion-button>
+  </article>
+
+  <article class="feature-card card-aire">
+    <span class="card-stripe"></span>
+
+    <span class="fcard-top">
+      <span class="fcard-icon-wrap aire-icon">
+        <ion-icon name="partly-sunny"></ion-icon>
+      </span>
+      <span class="fcard-badge aire-badge">AQI</span>
+    </span>
+
+    <span class="fcard-title">Calidad del Aire</span>
+    <span class="fcard-desc">
+      Consulta el índice AQI de tu ciudad y conoce
+      las condiciones ambientales actuales.
+    </span>
+
+    <ion-button expand="block" class="fcard-btn aire-btn" (click)="funcionalidadWAQI()">
+      <ion-icon name="arrow-forward" slot="end"></ion-icon>
+      Ver Calidad del Aire
+    </ion-button>
+  </article>
+
+</section>
+
 </ion-content>

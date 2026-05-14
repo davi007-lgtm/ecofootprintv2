@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --eco-dark:   #0d1f12;
+  --eco-green:  #1a6b35;
+  --eco-mid:    #2d9e55;
+  --eco-light:  #56c97a;
+  --eco-pale:   #e6f5eb;
+  --eco-sky:    #4a9eba;
+  --eco-sky-lt: #d6eef6;
+  --eco-cream:  #f8faf7;
+  --eco-text:   #1c2b20;
+  --eco-muted:  #6b7f6e;
+}
+
+ion-content.air-content {
+  --background: var(--eco-cream);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.air-toolbar {
+  --background: var(--eco-dark);
+  --color: #ffffff;
+}
+
+/* ── Hero ── */
+
+.air-hero {
+  position: relative;
+  background: linear-gradient(150deg, var(--eco-dark) 0%, #1a3d40 100%);
+  padding: 32px 24px 36px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  overflow: hidden;
+}
+
+.air-orb {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,158,186,0.3) 0%, transparent 70%);
+  top: -70px;
+  right: -60px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  pointer-events: none;
+}
+
+.air-hero-header {
+  position: relative;
+  z-index: 1;
+}
+
+.air-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(74,158,186,0.18);
+  color: #7dd4ea;
+  border: 1px solid rgba(74,158,186,0.3);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.air-eyebrow ion-icon {
+  font-size: 14px;
+}
+
+.air-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.air-hero-title em {
+  font-style: italic;
+  color: #7dd4ea;
+}
+
+/* ── Selector ── */
+
+.selector-section {
+  padding: 24px 20px 8px;
+}
+
+.selector-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--eco-muted);
+  margin: 0 0 12px;
+}
+
+.selector-label ion-icon {
+  font-size: 16px;
+  color: var(--eco-sky);
+}
+
+.custom-select-item {
+  --background: #ffffff;
+  --border-radius: 18px;
+  --padding-start: 16px;
+  --inner-padding-end: 16px;
+  border-radius: 18px;
+  border: 1.5px solid rgba(13,31,18,0.08);
+  box-shadow: 0 2px 12px rgba(13,31,18,0.05);
+}
+
+.custom-select {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--eco-text);
+}
+
+/* ── Loading ── */
+
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 16px;
+}
+
+.loading-spinner {
+  color: var(--eco-sky);
+  width: 40px;
+  height: 40px;
+}
+
+.loading-text {
+  color: var(--eco-muted);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ── AQI Section ── */
+
+.aqi-section {
+  padding: 20px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* AQI Main Card */
+
+.aqi-main-card {
+  background: var(--eco-dark);
+  border-radius: 28px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.aqi-main-card::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74,158,186,0.2) 0%, transparent 70%);
+  bottom: -50px;
+  right: -40px;
+  pointer-events: none;
+}
+
+.aqi-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.aqi-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(74,158,186,0.15);
+  border: 1px solid rgba(74,158,186,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+}
+
+.aqi-icon-wrap ion-icon {
+  font-size: 24px;
+  color: #7dd4ea;
+}
+
+.aqi-city-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.5);
+}
+
+.aqi-card-body {
+  display: block;
+}
+
+.aqi-number-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin: 0 0 6px;
+}
+
+.aqi-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 20px;
+}
+
+.aqi-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.aqi-status-pill ion-icon {
+  font-size: 16px;
+}
+
+/* Stats Card */
+
+.stats-card {
+  border-radius: 24px;
+  box-shadow: 0 2px 16px rgba(13,31,18,0.07);
+  border: 1px solid rgba(13,31,18,0.06);
+  margin: 0;
+}
+
+.stats-card-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--eco-text);
+}
+
+.stats-card-title ion-icon {
+  font-size: 18px;
+  color: var(--eco-sky);
+}
+
+.stat-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --background: transparent;
+  padding: 6px 0;
+}
+
+.stat-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 14px 0 0;
+  padding: 0;
+  border: none;
+}
+
+.temp-icon {
+  background: #fff0e8;
+}
+
+.temp-icon ion-icon {
+  font-size: 20px;
+  color: #d4732a;
+}
+
+.hum-icon {
+  background: #e8f3ff;
+}
+
+.hum-icon ion-icon {
+  font-size: 20px;
+  color: #3a7cc4;
+}
+
+.pm-icon {
+  background: var(--eco-pale);
+}
+
+.pm-icon ion-icon {
+  font-size: 20px;
+  color: var(--eco-green);
+}
+
+.stat-item-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--eco-muted);
+  margin: 0 0 3px;
+}
+
+.stat-item-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--eco-text);
+  margin: 0;
+}
+
+/* Location pill */
+
+.location-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 14px 20px;
+  border: 1.5px solid rgba(13,31,18,0.07);
+  box-shadow: 0 2px 10px rgba(13,31,18,0.05);
+}
+
+.location-icon {
+  font-size: 20px;
+  color: var(--eco-sky);
+}
+
+.location-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--eco-text);
+}
