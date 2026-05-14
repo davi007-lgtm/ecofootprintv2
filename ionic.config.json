@@ -1,0 +1,7 @@
+{
+  "name": "ecofootprint",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
