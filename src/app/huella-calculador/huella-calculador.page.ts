@@ -10,9 +10,8 @@ import {
 
 import { addIcons } from 'ionicons';
 import {
-  arrowBack, car, refreshCircle,
-  analyticsOutline, ellipse,
-} from 'ionicons/icons';
+  arrowBack, car, refreshCircle,carOutline,
+  analyticsOutline, ellipse, arrowBackOutline, addCircleOutline, carSportOutline, refreshCircleOutline } from 'ionicons/icons';
 
 import { HuellaService } from '../services/huella.service';
 
@@ -34,7 +33,7 @@ export class HuellaCalculadorPage {
     private router: Router,
     public huellaService: HuellaService,
   ) {
-    addIcons({ arrowBack, car, refreshCircle, analyticsOutline, ellipse });
+    addIcons({carOutline,arrowBackOutline,addCircleOutline,carSportOutline,refreshCircleOutline,analyticsOutline,ellipse,arrowBack,car,refreshCircle});
   }
 
   botonVolver() {

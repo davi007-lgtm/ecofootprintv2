@@ -49,7 +49,7 @@ export class CalidadAirePage implements OnInit, OnDestroy {
   ciudadSeleccionada: string = 'san-jose';
 
   paises: Pais[] = [
-    { nombre: 'Costa Rica',     ciudad: 'san-jose',     icono: 'leaf-outline'      },
+    { nombre: 'Costa Rica',     ciudad: 'San Pedro',     icono: 'leaf-outline'      },
     { nombre: 'México',          ciudad: 'mexico-city',  icono: 'globe-outline'     },
     { nombre: 'Estados Unidos',  ciudad: 'new-york',     icono: 'globe-outline'     },
     { nombre: 'España',          ciudad: 'madrid',       icono: 'globe-outline'     },
