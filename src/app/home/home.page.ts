@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 import {
   IonHeader, IonToolbar, IonTitle, IonContent,
-  IonButton, IonIcon,
-} from '@ionic/angular/standalone';
+  IonButton, IonIcon, IonGrid, IonRow, IonCol} from '@ionic/angular/standalone';
 
 import { addIcons } from 'ionicons';
 import {
@@ -21,7 +20,7 @@ import { HuellaService } from '../services/huella.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [
+  imports: [IonGrid, IonRow, IonCol,
     CommonModule,
     IonHeader, IonToolbar, IonTitle, IonContent,
     IonButton, IonIcon,

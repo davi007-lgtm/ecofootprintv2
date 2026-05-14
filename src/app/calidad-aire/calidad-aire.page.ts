@@ -9,7 +9,7 @@ import {
   IonHeader, IonToolbar, IonTitle, IonContent,
   IonCard, IonCardHeader, IonCardTitle, IonCardContent,
   IonButton, IonButtons, IonItem, IonLabel,
-  IonSelect, IonSelectOption, IonIcon, IonSpinner,
+  IonSelect, IonSelectOption, IonIcon, IonSpinner,IonRow, IonCol,IonGrid
 } from '@ionic/angular/standalone';
 
 import { addIcons } from 'ionicons';
@@ -38,7 +38,7 @@ interface Pais {
     IonHeader, IonToolbar, IonTitle, IonContent,
     IonCard, IonCardHeader, IonCardTitle, IonCardContent,
     IonButton, IonButtons, IonItem, IonLabel,
-    IonSelect, IonSelectOption, IonIcon, IonSpinner,
+    IonSelect, IonSelectOption, IonIcon, IonSpinner,IonRow, IonCol,IonGrid
   ],
 })
 export class CalidadAirePage implements OnInit, OnDestroy {
