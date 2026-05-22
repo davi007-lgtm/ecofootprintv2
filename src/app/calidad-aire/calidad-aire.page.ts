@@ -14,10 +14,9 @@ import {
 
 import { addIcons } from 'ionicons';
 import {
-  arrowBackOutline, leafOutline, cloudOutline,
+  arrowBackOutline, leafOutline, cloudOutline, refreshOutline, analyticsOutline,
   thermometerOutline, waterOutline, speedometerOutline,
-  locationOutline, analyticsOutline, globeOutline,
-} from 'ionicons/icons';
+  locationOutline, globeOutline, wifiOutline, partlySunnyOutline } from 'ionicons/icons';
 
 import { CalidadAireService } from '../services/calidad-aire.service';
 import { CalidadAire } from '../models/huella.model';
@@ -47,7 +46,7 @@ export class CalidadAirePage implements OnInit, OnDestroy {
   estado: string = '';
   color: string  = '';
   ciudadSeleccionada: string = 'san-jose';
-
+  sinConexion: boolean = false;
   paises: Pais[] = [
     { nombre: 'Costa Rica',     ciudad: 'San Pedro',     icono: 'leaf-outline'      },
     { nombre: 'México',          ciudad: 'mexico-city',  icono: 'globe-outline'     },
@@ -72,18 +71,22 @@ export class CalidadAirePage implements OnInit, OnDestroy {
     private calidadAireService: CalidadAireService,
     private router: Router,
   ) {
-    addIcons({
-      arrowBackOutline, leafOutline, cloudOutline,
-      thermometerOutline, waterOutline, speedometerOutline,
-      locationOutline, analyticsOutline, globeOutline,
-    });
+    addIcons({arrowBackOutline,cloudOutline,globeOutline,wifiOutline,refreshOutline,analyticsOutline,leafOutline,partlySunnyOutline,thermometerOutline,waterOutline,speedometerOutline,locationOutline,});
   }
 
   ngOnInit(): void {
+    this.sinConexion = !navigator.onLine;
+    window.addEventListener('online', () => this.sinConexion = false);
+    window.addEventListener('offline', () => this.sinConexion = true);
     this.cargarDatos();
   }
 
   cargarDatos(): void {
+    if (!navigator.onLine){
+      this.datos = null;
+      return;
+    }
+    this.sinConexion = false;
     this.datos = null;
     this.calidadAireService
       .obtenerCalidadAire(this.ciudadSeleccionada)

@@ -40,11 +40,24 @@
     </ion-item>
   </section>
 
-  <!-- LOADING -->
-  <section *ngIf="!datos" class="a-loading">
-    <ion-spinner name="crescent" class="a-spinner"></ion-spinner>
-    <p class="a-loading-text">Cargando datos del aire...</p>
-  </section>
+  <!-- Error de conexión -->
+<section *ngIf="sinConexion" class="error-conexion">
+  <article class="error-icon-box">
+    <ion-icon name="wifi-outline"></ion-icon>
+  </article>
+  <p class="error-title">Sin conexión a internet</p>
+  <p class="error-desc">Verifica tu red Wi-Fi o datos móviles e intenta de nuevo.</p>
+  <ion-button expand="block" class="error-btn" (click)="cargarDatos()">
+    <ion-icon name="refresh-outline" slot="start"></ion-icon>
+    Reintentar
+  </ion-button>
+</section>
+
+<!-- Loading -->
+<section *ngIf="!sinConexion && !datos" class="a-loading">
+  <ion-spinner name="crescent" class="a-spinner"></ion-spinner>
+  <p class="a-loading-text">Cargando datos del aire...</p>
+</section>
 
   <!-- RESULTADOS -->
   <section *ngIf="datos" class="a-results">

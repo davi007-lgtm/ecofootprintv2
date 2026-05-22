@@ -322,3 +322,59 @@ ion-content.air-content {
   font-weight: 600;
   color: #0f1c24;
 }
+/* ── Error de conexión ─────────────────────── */
+.error-conexion {
+  margin: 20px 16px 0;
+  background: #ffffff;
+  border: 1px solid rgba(220, 60, 60, 0.18);
+  border-radius: 22px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  animation: scaleIn 0.4s ease both;
+}
+
+.error-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #fff0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+
+  ion-icon {
+    font-size: 24px;
+    color: #c0392b;
+  }
+}
+
+.error-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f1c24;
+  margin: 0;
+}
+
+.error-desc {
+  font-size: 13px;
+  color: #8a9aaa;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-btn {
+  margin-top: 4px;
+  --background: #08141e;
+  --color: #ffffff;
+  --border-radius: 14px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+}
