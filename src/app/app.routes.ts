@@ -12,10 +12,15 @@ export const routes: Routes = [
   },
   {
     path: 'huella-calculador',
-    loadComponent: () => import('./huella-calculador/huella-calculador.page').then( m => m.HuellaCalculadorPage)
+    loadComponent: () => import('./huella-calculador/huella-calculador.page').then(m => m.HuellaCalculadorPage)
   },
   {
     path: 'calidad-aire',
-    loadComponent: () => import('./calidad-aire/calidad-aire.page').then( m => m.CalidadAirePage)
+    loadComponent: () => import('./calidad-aire/calidad-aire.page').then(m => m.CalidadAirePage)
+  },
+  // ── Incidentes ──
+  {
+    path: 'incidentes-page',
+    loadComponent: () => import('src/app/incidentes-page/incidentes.page').then(m => m.IncidentesPage)
   },
 ];

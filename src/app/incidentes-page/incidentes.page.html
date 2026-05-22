@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="warning-outline" class="logo-icon"></ion-icon>
+      Incidentes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="incidentes-content">
+
+  <!-- Hero -->
+  <header class="hero">
+    <span class="pill">Gestión de reportes</span>
+    <h1 class="hero-title">Tus <em>Incidentes</em></h1>
+    <p class="hero-sub">Revisá, editá o eliminá los reportes registrados.</p>
+  </header>
+
+  <!-- Lista -->
+  <section class="section">
+
+    <p class="section-label">
+      <ion-icon name="list-outline"></ion-icon>
+      Reportes activos
+    </p>
+
+    <!-- Sin reportes -->
+    <article class="lista-vacia" *ngIf="reportes.length === 0">
+      <ion-icon name="alert-circle-outline" class="vacia-icon"></ion-icon>
+      <p class="vacia-texto">No hay reportes. Presioná + para agregar uno.</p>
+    </article>
+
+    <!-- Con reportes -->
+    <ion-list *ngIf="reportes.length > 0">
+      <ion-item
+        *ngFor="let reporte of reportes"
+        lines="none"
+        class="reporte-card"
+        [class]="claseCard(reporte.estado)"
+      >
+        <header class="card-head">
+          <section class="card-info">
+            <h2 class="card-incidente">{{ reporte.incidente }}</h2>
+            <time class="card-fecha">{{ reporte.fecha | date: 'dd/MM/yyyy' }}</time>
+          </section>
+          <span class="badge-estado" [class]="claseBadge(reporte.estado)">
+            {{ reporte.estado }}
+          </span>
+        </header>
+
+        <p class="card-desc">{{ reporte.descripcion }}</p>
+
+        <footer class="card-actions">
+          <ion-button class="btn-editar" fill="solid" size="small" (click)="abrirModalEditar(reporte)">
+            <ion-icon name="create-outline" slot="start"></ion-icon>
+            Editar
+          </ion-button>
+          <ion-button class="btn-eliminar" fill="solid" size="small" (click)="confirmarEliminar(reporte)">
+            <ion-icon name="trash-outline" slot="start"></ion-icon>
+            Eliminar
+          </ion-button>
+        </footer>
+      </ion-item>
+    </ion-list>
+
+  </section>
+
+  <span class="bottom-spacer"></span>
+
+  <!-- FAB -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="abrirModalCrear()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- Modal crear / editar -->
+  <ion-modal [isOpen]="modalAbierto" (didDismiss)="cerrarModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ modoEdicion ? 'Editar reporte' : 'Nuevo reporte' }}</ion-title>
+          <ion-button slot="end" fill="clear" (click)="cerrarModal()">
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="modal-content">
+        <section class="form-section">
+
+          <article class="form-field">
+            <label class="field-label">Incidente</label>
+            <ion-input
+              class="field-input"
+              placeholder="Ej: Fuga de agua"
+              [(ngModel)]="incidente"
+            ></ion-input>
+          </article>
+
+          <article class="form-field">
+            <label class="field-label">Descripción</label>
+            <ion-textarea
+              class="field-input"
+              placeholder="Describí el incidente..."
+              [(ngModel)]="descripcion"
+              rows="3"
+            ></ion-textarea>
+          </article>
+
+          <article class="form-field">
+            <label class="field-label">Estado</label>
+            <ion-select class="field-input" [(ngModel)]="estado" interface="popover">
+              <ion-select-option value="Abierto">Abierto</ion-select-option>
+              <ion-select-option value="En Proceso">En Proceso</ion-select-option>
+              <ion-select-option value="Cerrado">Cerrado</ion-select-option>
+            </ion-select>
+          </article>
+
+          <ion-button class="btn-guardar" expand="block" (click)="guardar()">
+            {{ modoEdicion ? 'Actualizar' : 'Guardar' }}
+          </ion-button>
+
+        </section>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

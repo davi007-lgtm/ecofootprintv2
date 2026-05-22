@@ -10,7 +10,7 @@ import { addIcons } from 'ionicons';
 import {
   leafOutline, leaf, partlySunny, arrowForward,
   analyticsOutline, ellipse, trendingUpOutline,
-  trendingDownOutline, checkmarkCircleOutline, informationCircleOutline, arrowForwardOutline, cloudOutline } from 'ionicons/icons';
+  trendingDownOutline, checkmarkCircleOutline, informationCircleOutline, arrowForwardOutline, cloudOutline, earthOutline, documentTextOutline } from 'ionicons/icons';
 
 import { HuellaService } from '../services/huella.service';
 
@@ -31,7 +31,7 @@ export class HomePage {
     private router: Router,
     public huellaService: HuellaService,
   ) {
-    addIcons({leafOutline,analyticsOutline,checkmarkCircleOutline,informationCircleOutline,leaf,arrowForwardOutline,cloudOutline,partlySunny,arrowForward,ellipse,trendingUpOutline,trendingDownOutline,});
+    addIcons({leafOutline,analyticsOutline,checkmarkCircleOutline,informationCircleOutline,leaf,arrowForwardOutline,cloudOutline,partlySunny,arrowForward,ellipse,trendingUpOutline,trendingDownOutline,earthOutline,documentTextOutline});
   }
 
   funcionalidadHuella() {
@@ -40,6 +40,10 @@ export class HomePage {
 
   funcionalidadWAQI() {
     this.router.navigate(['/calidad-aire']);
+  }
+
+  funcionalidadReportes() {
+    this.router.navigate(['/incidentes-page']);
   }
 
   get totalImpacto(): number {

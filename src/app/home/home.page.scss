@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600&display=swap');
 
-/* ── Keyframes ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -211,6 +209,11 @@ ion-title {
   border-top: 3px solid #2e86c1;
 }
 
+.fcard-orange {
+  animation-delay: 0.36s;
+  border-top: 3px solid #d35400;
+}
+
 .fcard-head {
   display: flex;
   align-items: center;
@@ -240,6 +243,14 @@ ion-title {
   color: #2e86c1;
 }
 
+.fcard-icon-orange {
+  background: rgba(211, 84, 0, 0.13);
+}
+
+.fcard-icon-orange ion-icon {
+  color: #d35400;
+}
+
 .fcard-tag {
   font-size: 11px;
   font-weight: 700;
@@ -253,6 +264,11 @@ ion-title {
 .fcard-tag-blue {
   background: rgba(46,134,193,0.13);
   color: #2e86c1;
+}
+
+.fcard-tag-orange {
+  background: rgba(211, 84, 0, 0.13);
+  color: #d35400;
 }
 
 .fcard-title {
@@ -278,4 +294,9 @@ ion-title {
 .fcard-btn-blue {
   --background: rgb(3, 154, 76);
   --background-activated: #1f5e8c;
+}
+
+.fcard-btn-orange {
+  --background: #d35400;
+  --background-activated: #a04000;
 }
